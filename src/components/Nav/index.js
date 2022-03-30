@@ -16,14 +16,14 @@ function Nav() {
     },
   ];
 
-  const handleClick = () => {
-    console.log("click handled");
+  const handleClick = (item) => {
+    console.log(item);
   };
 
   return (
-    <header data-testid="header" className="flex-row px-1">
+    <header className="flex-row px-1">
       <h2>
-        <a href="/">
+        <a data-testid="link" href="/">
           <span role="img" aria-label="camera">
             {" "}
             📸
@@ -34,7 +34,7 @@ function Nav() {
       <nav>
         <ul className="flex-row">
           <li className="mx-2">
-            <a href="#about" onClick={() => handleClick()}>
+            <a data-testid="about" href="#about" onClick={() => handleClick()}>
               About me
             </a>
           </li>
@@ -45,7 +45,7 @@ function Nav() {
             <li className="mx-1" key={category.name}>
               <span
                 onClick={() => {
-                  handleClick();
+                  handleClick(category.name);
                 }}
               >
                 {capitalizeFirstLetter(category.name)}
